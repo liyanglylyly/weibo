@@ -8,7 +8,13 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-
+  // MARK: - 监听方法
+  // 点击撰写按钮
+  @objc private func clickComposedButton() {
+    print("xxx")
+  }
+  
+  // MARK: - 视图声明周期函数
   override func viewDidLoad() {
     super.viewDidLoad()
     addChildViewControllers()
@@ -47,6 +53,8 @@ extension MainViewController {
     // 让按钮宽一点， 能够解决按钮触摸的容错问题
     let w = tabBar.bounds.size.width / CGFloat(count) - 1
     composeButton.frame = CGRectInset(tabBar.bounds, 2 * w, 0);
+    // 3. 添加监听方法
+    composeButton.addTarget(self, action: #selector(clickComposedButton), for: .touchUpInside)
   }
   
   private func addChildViewControllers() {
