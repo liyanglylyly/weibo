@@ -20,7 +20,7 @@ class VisitorTableViewController: UITableViewController {
   private func setupVisitorView() {
     // 替换根视图
     view = VisitorView()
-    view.backgroundColor = UIColor.orange
+    view.backgroundColor = UIColor.white
   }
 
 }
