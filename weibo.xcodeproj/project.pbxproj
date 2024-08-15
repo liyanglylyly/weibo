@@ -21,6 +21,7 @@
 		B63429942C6E2B2F00138CC2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63429932C6E2B2F00138CC2 /* ProfileTableViewController.swift */; };
 		B63429992C6E458500138CC2 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63429982C6E458500138CC2 /* UIButton+Extension.swift */; };
 		B634299C2C6EBE1D00138CC2 /* VisitorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634299B2C6EBE1D00138CC2 /* VisitorTableViewController.swift */; };
+		B634299E2C6EC0F900138CC2 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634299D2C6EC0F900138CC2 /* VisitorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B63429932C6E2B2F00138CC2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		B63429982C6E458500138CC2 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		B634299B2C6EBE1D00138CC2 /* VisitorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorTableViewController.swift; sourceTree = "<group>"; };
+		B634299D2C6EC0F900138CC2 /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				B634299B2C6EBE1D00138CC2 /* VisitorTableViewController.swift */,
+				B634299D2C6EC0F900138CC2 /* VisitorView.swift */,
 			);
 			path = Visitor;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				B63429922C6E2B1D00138CC2 /* MessageTableViewController.swift in Sources */,
 				B63429992C6E458500138CC2 /* UIButton+Extension.swift in Sources */,
 				B634299C2C6EBE1D00138CC2 /* VisitorTableViewController.swift in Sources */,
+				B634299E2C6EC0F900138CC2 /* VisitorView.swift in Sources */,
 				B63429942C6E2B2F00138CC2 /* ProfileTableViewController.swift in Sources */,
 				B634298A2C6D781400138CC2 /* MainViewController.swift in Sources */,
 			);

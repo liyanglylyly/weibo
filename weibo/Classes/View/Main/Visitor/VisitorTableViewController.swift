@@ -12,9 +12,15 @@ class VisitorTableViewController: UITableViewController {
   private var userLogin = false;
   
   override func loadView() {
-    super.loadView()
-//    view = UIView()
-//    view.backgroundColor = UIColor.orange
+    // 根据用户登录情况, 决定显示的根视图
+    userLogin ? super.loadView() : setupVisitorView()
+  }
+  
+  /// 设置访客视图
+  private func setupVisitorView() {
+    // 替换根视图
+    view = VisitorView()
+    view.backgroundColor = UIColor.orange
   }
 
 }
