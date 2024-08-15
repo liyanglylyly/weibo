@@ -21,16 +21,17 @@ class MainViewController: UITabBarController {
   }
   
   // MARK: - 懒加载控件
-  private lazy var composeButton: UIButton = {
-    // 自定义样式的按钮
-    let button = UIButton();
-    button.setImage(UIImage(named: "tabbar_compose_icon_add"), for: .normal);
-    button.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), for: .highlighted);
-    button.setBackgroundImage(UIImage(named: "tabbar_compose_button"), for: .normal);
-    button.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), for: .highlighted)
-    button.sizeToFit()
-    return button
-  }()
+  private lazy var composeButton: UIButton = UIButton(imageName: "tabbar_compose_icon_add", backImageName: "tabbar_compose_button")
+//  {
+//    // 自定义样式的按钮
+//    let button = UIButton();
+//    button.setImage(UIImage(named: "tabbar_compose_icon_add"), for: .normal);
+//    button.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), for: .highlighted);
+//    button.setBackgroundImage(UIImage(named: "tabbar_compose_button"), for: .normal);
+//    button.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), for: .highlighted)
+//    button.sizeToFit()
+//    return button
+//  }()
   
 }
 

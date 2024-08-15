@@ -19,6 +19,7 @@
 		B63429902C6E2B0400138CC2 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634298F2C6E2B0400138CC2 /* DiscoverTableViewController.swift */; };
 		B63429922C6E2B1D00138CC2 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63429912C6E2B1D00138CC2 /* MessageTableViewController.swift */; };
 		B63429942C6E2B2F00138CC2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63429932C6E2B2F00138CC2 /* ProfileTableViewController.swift */; };
+		B63429992C6E458500138CC2 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63429982C6E458500138CC2 /* UIButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B634298F2C6E2B0400138CC2 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		B63429912C6E2B1D00138CC2 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		B63429932C6E2B2F00138CC2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		B63429982C6E458500138CC2 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 		B63429792C6D781400138CC2 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				B63429972C6E455500138CC2 /* Extension */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -214,6 +217,14 @@
 				B63429852C6D781400138CC2 /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		B63429972C6E455500138CC2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B63429982C6E458500138CC2 /* UIButton+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +362,7 @@
 				B634298E2C6D79E300138CC2 /* HomeTableViewController.swift in Sources */,
 				B63429902C6E2B0400138CC2 /* DiscoverTableViewController.swift in Sources */,
 				B63429922C6E2B1D00138CC2 /* MessageTableViewController.swift in Sources */,
+				B63429992C6E458500138CC2 /* UIButton+Extension.swift in Sources */,
 				B63429942C6E2B2F00138CC2 /* ProfileTableViewController.swift in Sources */,
 				B634298A2C6D781400138CC2 /* MainViewController.swift in Sources */,
 			);
