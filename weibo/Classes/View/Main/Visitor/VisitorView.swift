@@ -27,6 +27,7 @@ class VisitorView: UIView {
   
   // MARK: - 懒加载控件
   private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
+  private lazy var maskIconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
   private lazy var homeIconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
   private lazy var messageLabel: UILabel = {
     let label = UILabel()
@@ -57,6 +58,7 @@ extension VisitorView {
   private func setupUI() {
     // 1. 添加控件
     addSubview(iconView)
+    addSubview(maskIconView)
     addSubview(homeIconView)
     addSubview(messageLabel)
     addSubview(registerButton)
@@ -92,6 +94,15 @@ extension VisitorView {
     addConstraint(NSLayoutConstraint(item: loginButton, attribute: .top, relatedBy: .equal, toItem: messageLabel, attribute: .bottom, multiplier: 1.0, constant: 16))
     addConstraint(NSLayoutConstraint(item: loginButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100))
     addConstraint(NSLayoutConstraint(item: loginButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 36))
+    // 6 > 遮罩层
+    // VFL: 可视化格式语言
+    // V: 垂直方向
+    // H: 水平方向
+    // ｜: 边界
+    // views: 字典 [名字: 控件名] - VFL 字符串中表示控件的字符串
+    // metrics: 字典 [名字: NSNumber] - VFL 字符串中表示某一个数值
+    addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[mask]-0-|", metrics: nil, views: ["mask": maskIconView]))
+    addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[mask]-(btnHeight)-[regButton]", metrics: ["btnHeight": -36], views: ["mask": maskIconView, "regButton": registerButton]))
   }
   
 }
