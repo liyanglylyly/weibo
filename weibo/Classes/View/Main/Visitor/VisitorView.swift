@@ -16,6 +16,8 @@ class VisitorView: UIView {
     messageLabel.text = title
     // 如果imageName 为 nil, 说明是首页, 直接返回
     guard let imgName = imageName else {
+      // 播放动画
+      startAnim()
       return
     }
     iconView.image = UIImage(named: imgName)
@@ -23,6 +25,18 @@ class VisitorView: UIView {
     homeIconView.isHidden = true
     // 将遮罩图像移动到底层
     sendSubviewToBack(maskIconView)
+  }
+  
+  // 开启首页轮转动画
+  private func startAnim() {
+    let anim = CABasicAnimation(keyPath: "transform.rotation")
+    anim.toValue = 2 * Double.pi
+    anim.repeatCount = MAXFLOAT
+    anim.duration = 20
+    
+    anim.isRemovedOnCompletion = false
+    // 添加到图层
+    iconView.layer.add(anim, forKey: nil)
   }
   
   // initWithFrame 是UIView指定的构造函数
