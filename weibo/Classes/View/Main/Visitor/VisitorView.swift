@@ -11,12 +11,25 @@ import UIKit
 class VisitorView: UIView {
   
   
+  // MARK: - 设置视图信息
+  func setupInfo(imageName: String?, title: String) {
+    messageLabel.text = title
+    // 如果imageName 为 nil, 说明是首页, 直接返回
+    guard let imgName = imageName else {
+      return
+    }
+    iconView.image = UIImage(named: imgName)
+    // 隐藏小房子
+    homeIconView.isHidden = true
+    // 将遮罩图像移动到底层
+    sendSubviewToBack(maskIconView)
+  }
+  
   // initWithFrame 是UIView指定的构造函数
   // 使用纯代码开发的入口
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupUI()
-    
   }
   
   // initWithCoder - 使用 SB & XIB 开发加载的函数
@@ -35,6 +48,7 @@ class VisitorView: UIView {
     label.textColor = UIColor.darkGray
     label.font = UIFont.systemFont(ofSize: 14)
     label.numberOfLines = 0
+    label.textAlignment = NSTextAlignment.center
     return label
   }()
   private lazy var registerButton: UIButton = {
