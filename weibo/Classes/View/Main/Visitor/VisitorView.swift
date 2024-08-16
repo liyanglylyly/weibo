@@ -103,6 +103,8 @@ extension VisitorView {
     // metrics: 字典 [名字: NSNumber] - VFL 字符串中表示某一个数值
     addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[mask]-0-|", metrics: nil, views: ["mask": maskIconView]))
     addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[mask]-(btnHeight)-[regButton]", metrics: ["btnHeight": -36], views: ["mask": maskIconView, "regButton": registerButton]))
+    // 设置背景颜色
+    backgroundColor = UIColor(white: 237.0 / 255.0, alpha: 1.0)
   }
   
 }
