@@ -7,28 +7,9 @@
 
 import UIKit
 
-/// 访客视图的协议
-protocol VisitorViewDelegate: NSObjectProtocol {
-  /// 注册
-  func visitorViewRegister()
-  /// 登录
-  func visitorViewDidLogin()
-}
-
 /// 访客视图  - 处理用户未登录的界面显示
 class VisitorView: UIView {
-  
-  weak var delegate: VisitorViewDelegate?
-  
-  // MARK: - 监听方法
-  @objc private func clickLogin() {
-    delegate?.visitorViewDidLogin()
-  }
-  
-  @objc private func clickRegister() {
-    delegate?.visitorViewRegister()
-  }
-  
+    
   
   // MARK: - 设置视图信息
   func setupInfo(imageName: String?, title: String) {
@@ -76,8 +57,8 @@ class VisitorView: UIView {
   private lazy var maskIconView: UIImageView = UIImageView(imageName: "visitordiscover_feed_mask_smallicon")
   private lazy var homeIconView: UIImageView = UIImageView(imageName: "visitordiscover_feed_image_house")
   private lazy var messageLabel: UILabel = UILabel(title: "关注一些人, 回这里看看有什么惊喜")
-  private lazy var registerButton: UIButton = UIButton(title: "注册", color: UIColor.orange, imageName: "common_button_white_disable")
-  private lazy var loginButton: UIButton = UIButton(title: "登录", color: UIColor.darkGray, imageName: "common_button_white_disable")
+  lazy var registerButton: UIButton = UIButton(title: "注册", color: UIColor.orange, imageName: "common_button_white_disable")
+  lazy var loginButton: UIButton = UIButton(title: "登录", color: UIColor.darkGray, imageName: "common_button_white_disable")
 }
 
 extension VisitorView {
@@ -133,9 +114,6 @@ extension VisitorView {
     // 设置背景颜色
     backgroundColor = UIColor(white: 237.0 / 255.0, alpha: 1.0)
     
-    // 设置监听方法
-    registerButton.addTarget(self, action: #selector(clickRegister), for: .touchUpInside)
-    loginButton.addTarget(self, action: #selector(clickLogin), for: .touchUpInside)
   }
   
 }
