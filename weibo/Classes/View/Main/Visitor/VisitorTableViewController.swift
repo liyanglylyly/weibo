@@ -21,7 +21,18 @@ class VisitorTableViewController: UITableViewController {
   private func setupVisitorView() {
     // 替换根视图
     visitorView = VisitorView()
+    visitorView?.delegate = self
     view = visitorView
   }
 
+}
+
+// MARK: - 访客视图监听方法
+extension VisitorTableViewController: VisitorViewDelegate {
+  func visitorViewRegister() {
+    print("11")
+  }
+  func visitorViewDidLogin() {
+    print("222")
+  }
 }

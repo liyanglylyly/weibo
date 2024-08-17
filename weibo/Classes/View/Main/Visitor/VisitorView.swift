@@ -7,8 +7,27 @@
 
 import UIKit
 
+/// 访客视图的协议
+protocol VisitorViewDelegate: NSObjectProtocol {
+  /// 注册
+  func visitorViewRegister()
+  /// 登录
+  func visitorViewDidLogin()
+}
+
 /// 访客视图  - 处理用户未登录的界面显示
 class VisitorView: UIView {
+  
+  weak var delegate: VisitorViewDelegate?
+  
+  // MARK: - 监听方法
+  @objc private func clickLogin() {
+    delegate?.visitorViewDidLogin()
+  }
+  
+  @objc private func clickRegister() {
+    delegate?.visitorViewRegister()
+  }
   
   
   // MARK: - 设置视图信息
@@ -113,6 +132,10 @@ extension VisitorView {
     addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[mask]-(btnHeight)-[regButton]", metrics: ["btnHeight": -36], views: ["mask": maskIconView, "regButton": registerButton]))
     // 设置背景颜色
     backgroundColor = UIColor(white: 237.0 / 255.0, alpha: 1.0)
+    
+    // 设置监听方法
+    registerButton.addTarget(self, action: #selector(clickRegister), for: .touchUpInside)
+    loginButton.addTarget(self, action: #selector(clickLogin), for: .touchUpInside)
   }
   
 }
