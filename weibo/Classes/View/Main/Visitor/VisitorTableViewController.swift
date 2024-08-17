@@ -37,7 +37,12 @@ extension VisitorTableViewController {
   @objc func visitorViewRegister() {
     print("11")
   }
+  
   @objc func visitorViewDidLogin() {
-    print("222")
+    let vc = OAuthViewController()
+    vc.modalPresentationStyle = .fullScreen
+    let nav = UINavigationController(rootViewController: vc)
+    present(nav, animated: true)
+    
   }
 }
