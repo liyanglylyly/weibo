@@ -53,32 +53,12 @@ class VisitorView: UIView {
   }
   
   // MARK: - 懒加载控件
-  private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
-  private lazy var maskIconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
-  private lazy var homeIconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
-  private lazy var messageLabel: UILabel = {
-    let label = UILabel()
-    label.text = "关注一些人, 回这里看看有什么惊喜"
-    label.textColor = UIColor.darkGray
-    label.font = UIFont.systemFont(ofSize: 14)
-    label.numberOfLines = 0
-    label.textAlignment = NSTextAlignment.center
-    return label
-  }()
-  private lazy var registerButton: UIButton = {
-    let button = UIButton()
-    button.setTitle("注册", for: .normal)
-    button.setTitleColor(UIColor.orange, for: .normal)
-//    button.setBackgroundImage(UIImage(named: "common_button_white_disable"), for: .normal)
-    return button
-  }()
-  private lazy var loginButton = {
-    let button = UIButton()
-    button.setTitle("登录", for: .normal)
-    button.setTitleColor(UIColor.darkGray, for: .normal)
-//    button.setBackgroundImage(UIImage(named: "common_button_white_disable"), for: .normal)
-    return button
-  }()
+  private lazy var iconView: UIImageView = UIImageView(imageName: "visitordiscover_feed_image_smallicon")
+  private lazy var maskIconView: UIImageView = UIImageView(imageName: "visitordiscover_feed_mask_smallicon")
+  private lazy var homeIconView: UIImageView = UIImageView(imageName: "visitordiscover_feed_image_house")
+  private lazy var messageLabel: UILabel = UILabel(title: "关注一些人, 回这里看看有什么惊喜")
+  private lazy var registerButton: UIButton = UIButton(title: "注册", color: UIColor.orange, imageName: "common_button_white_disable")
+  private lazy var loginButton: UIButton = UIButton(title: "登录", color: UIColor.darkGray, imageName: "common_button_white_disable")
 }
 
 extension VisitorView {
