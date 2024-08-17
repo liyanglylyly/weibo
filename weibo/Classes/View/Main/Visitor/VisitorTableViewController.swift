@@ -24,6 +24,10 @@ class VisitorTableViewController: UITableViewController {
     visitorView?.loginButton.addTarget(self, action: #selector(visitorViewDidLogin), for: .touchUpInside)
     visitorView?.registerButton.addTarget(self, action: #selector(visitorViewRegister), for: .touchUpInside)
     view = visitorView
+    
+    // 设置导航栏按钮
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(visitorViewRegister))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(visitorViewDidLogin))
   }
 
 }

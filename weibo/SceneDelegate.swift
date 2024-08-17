@@ -13,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    setupAppeareance()
     guard let windowScene = (scene as? UIWindowScene) else { return }
     window = UIWindow(frame: windowScene.coordinateSpace.bounds)
     window?.windowScene = windowScene
@@ -20,6 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.makeKeyAndVisible()
   }
 
+  // 设置全局外观 - 在很多应用中，都会在SceneDelegate中设置所有需要控件的全局外观
+  private func setupAppeareance() {
+    // 修改导航栏的全局外观, 要在控件创建之前设置, 一经设置全局有效
+    UINavigationBar.appearance().tintColor = WBAppearanceTintColor
+    //
+    UITabBar.appearance().tintColor = WBAppearanceTintColor
+  }
+  
   func sceneDidDisconnect(_ scene: UIScene) {
     // Called as the scene is being released by the system.
     // This occurs shortly after the scene enters the background, or when its session is discarded.

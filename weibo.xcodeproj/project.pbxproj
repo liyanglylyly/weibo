@@ -24,6 +24,7 @@
 		B634299E2C6EC0F900138CC2 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634299D2C6EC0F900138CC2 /* VisitorView.swift */; };
 		B63CB62C2C701C1F004FD0B3 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CB62B2C701C1F004FD0B3 /* UILabel+Extension.swift */; };
 		B63CB62E2C701F9C004FD0B3 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CB62D2C701F9C004FD0B3 /* UIImageView+Extension.swift */; };
+		B6B80FBF2C703F2B005C53A8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B80FBE2C703F2B005C53A8 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		B634299D2C6EC0F900138CC2 /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		B63CB62B2C701C1F004FD0B3 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		B63CB62D2C701F9C004FD0B3 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		B6B80FBE2C703F2B005C53A8 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				B63429972C6E455500138CC2 /* Extension */,
+				B6B80FBE2C703F2B005C53A8 /* Common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 			files = (
 				B63CB62C2C701C1F004FD0B3 /* UILabel+Extension.swift in Sources */,
 				B63429482C6D747600138CC2 /* AppDelegate.swift in Sources */,
+				B6B80FBF2C703F2B005C53A8 /* Common.swift in Sources */,
 				B634294A2C6D747600138CC2 /* SceneDelegate.swift in Sources */,
 				B634298E2C6D79E300138CC2 /* HomeTableViewController.swift in Sources */,
 				B63429902C6E2B0400138CC2 /* DiscoverTableViewController.swift in Sources */,
