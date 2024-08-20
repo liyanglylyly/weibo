@@ -31,6 +31,17 @@ extension NetworkTools {
     let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(appKey)&redirect_uri=\(redirectUrl)"
     return NSURL(string: urlString)!
   }
+  func loadAccessToken(code: String, finished: @escaping (Any?, Error?) -> Void) {
+    let urlString = "https://api.weibo.com/oauth2/access_token"
+    let param = [
+      "client_id": appKey,
+      "client_secret": appSecret,
+      "grant_type": "authorization_code",
+      "code": code,
+      "redirect_uri": redirectUrl
+    ]
+    request(method: .POST, URLString: urlString, parameters: param, finished: finished)
+  }
 }
 
 // MARK: - 封装 AFN 网络方法

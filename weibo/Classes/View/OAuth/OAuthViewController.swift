@@ -41,7 +41,15 @@ extension OAuthViewController: UIWebViewDelegate {
       return false
     }
     let code = query.substring(from: "code=".endIndex)
-    
+    print(code)
+    NetworkTools.sharedTools.loadAccessToken(code: code) { (result, error) in
+      if error != nil {
+        return
+      } else {
+        
+      }
+      print(result)
+    }
     return false
   }
 }
