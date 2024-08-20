@@ -19,6 +19,9 @@ class NetworkTools: AFHTTPSessionManager {
   private let appSecret = "7b0c3272d0e4ca476334d307445e9632"
   private let redirectUrl = "http://www.baidu.com"
   
+  //
+  typealias RequestCallBack = (Any?, Error?) -> Void
+  
   static let sharedTools: NetworkTools = {
     let tools = NetworkTools(baseURL: nil)
     tools.responseSerializer.acceptableContentTypes?.insert("text/html")
@@ -31,7 +34,7 @@ extension NetworkTools {
     let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(appKey)&redirect_uri=\(redirectUrl)"
     return NSURL(string: urlString)!
   }
-  func loadAccessToken(code: String, finished: @escaping (Any?, Error?) -> Void) {
+  func loadAccessToken(code: String, finished: @escaping RequestCallBack) {
     let urlString = "https://api.weibo.com/oauth2/access_token"
     let param = [
       "client_id": appKey,
