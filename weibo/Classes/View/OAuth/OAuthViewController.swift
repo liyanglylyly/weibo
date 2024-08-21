@@ -45,10 +45,10 @@ extension OAuthViewController: UIWebViewDelegate {
     NetworkTools.sharedTools.loadAccessToken(code: code) { (result, error) in
       if error != nil {
         return
-      } else {
-        
       }
       print(result)
+      let account = UserAccount(dict: result as! [String: Any])
+      print(account)
     }
     return false
   }

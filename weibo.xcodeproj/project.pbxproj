@@ -27,6 +27,7 @@
 		B63CB62C2C701C1F004FD0B3 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CB62B2C701C1F004FD0B3 /* UILabel+Extension.swift */; };
 		B63CB62E2C701F9C004FD0B3 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CB62D2C701F9C004FD0B3 /* UIImageView+Extension.swift */; };
 		B6B80FBF2C703F2B005C53A8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B80FBE2C703F2B005C53A8 /* Common.swift */; };
+		B6D3A1B42C75FE7B0022AE85 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3A1B32C75FE7B0022AE85 /* UserAccount.swift */; };
 		D925C7F01120C89821B96DE9 /* Pods_weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4A8050ADA59B4BA6B17C78 /* Pods_weibo.framework */; };
 		DBCF7C52D5078C571D085B59 /* Pods_weibo_weiboUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E507A7F2BCEE30FD99C6FF /* Pods_weibo_weiboUITests.framework */; };
 		FA6E07E1147B05E843308059 /* Pods_weiboTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378C2641F13EA6AA8C236E81 /* Pods_weiboTests.framework */; };
@@ -81,6 +82,7 @@
 		B63CB62B2C701C1F004FD0B3 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		B63CB62D2C701F9C004FD0B3 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B6B80FBE2C703F2B005C53A8 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		B6D3A1B32C75FE7B0022AE85 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		B84F298F16041D197EE459E5 /* Pods-weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.release.xcconfig"; path = "Target Support Files/Pods-weibo/Pods-weibo.release.xcconfig"; sourceTree = "<group>"; };
 		D32EE36EB43CCBCA9FA4E9ED /* Pods-weiboTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weiboTests.release.xcconfig"; path = "Target Support Files/Pods-weiboTests/Pods-weiboTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,6 +229,7 @@
 		B634297A2C6D781400138CC2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B6D3A1B32C75FE7B0022AE85 /* UserAccount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				B634294A2C6D747600138CC2 /* SceneDelegate.swift in Sources */,
 				B634298E2C6D79E300138CC2 /* HomeTableViewController.swift in Sources */,
 				B63429902C6E2B0400138CC2 /* DiscoverTableViewController.swift in Sources */,
+				B6D3A1B42C75FE7B0022AE85 /* UserAccount.swift in Sources */,
 				B63429922C6E2B1D00138CC2 /* MessageTableViewController.swift in Sources */,
 				B63CB62E2C701F9C004FD0B3 /* UIImageView+Extension.swift in Sources */,
 				B63429992C6E458500138CC2 /* UIButton+Extension.swift in Sources */,
