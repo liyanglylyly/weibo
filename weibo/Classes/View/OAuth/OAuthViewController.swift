@@ -48,7 +48,6 @@ extension OAuthViewController: UIWebViewDelegate {
       }
       print(result)
       let account = UserAccount(dict: result as! [String: Any])
-      print(account)
     }
     return false
   }

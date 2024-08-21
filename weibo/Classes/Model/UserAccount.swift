@@ -9,11 +9,9 @@ import UIKit
 
 class UserAccount: NSObject {
   
-  @objc var access_token: String = ""
-  @objc var expires_in: TimeInterval = 0
-  @objc var uid: TimeInterval = 0
-  @objc var remind_in: TimeInterval = 0
-  @objc var isRealName: Bool = false
+  @objc var access_token: String?
+  @objc var expires_in: NSNumber = 0
+  @objc var uid: NSNumber = 0
   
   init(dict: [String: Any]) {
     super.init()
@@ -21,9 +19,15 @@ class UserAccount: NSObject {
     setValuesForKeys(dict)
   }
   
-  override class func setValue(_ value: Any?, forUndefinedKey key: String) {
-    
+  override func setValue(_ value: Any?, forUndefinedKey key: String) {
+    print("forUndefinedKey: \(key)")
   }
+
+  override func value(forUndefinedKey key: String) -> Any? {
+    return ""
+  }
+  
+
   
   override var description: String {
     let keys = ["access_token", "expires_in", "uid", "remind_in", "isRealName"]
