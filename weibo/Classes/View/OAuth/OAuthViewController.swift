@@ -63,8 +63,10 @@ extension OAuthViewController: UIWebViewDelegate {
         print("格式错误")
         return
       }
-      print(dict["screen_name"])
-      print(dict["avatar_large"])
+      account.screen_name = dict["screen_name"] as? String
+      account.avatar_large = dict["avatar_large"] as? String
+      self.title = account.screen_name
+      print(account)
     }
   }
 }
