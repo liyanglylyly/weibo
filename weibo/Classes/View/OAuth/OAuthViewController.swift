@@ -41,14 +41,30 @@ extension OAuthViewController: UIWebViewDelegate {
       return false
     }
     let code = query.substring(from: "code=".endIndex)
-    print(code)
     NetworkTools.sharedTools.loadAccessToken(code: code) { (result, error) in
       if error != nil {
         return
       }
-      print(result)
       let account = UserAccount(dict: result as! [String: Any])
+      self.loadUserInfo(account: account)
+      
     }
     return false
+  }
+  private func loadUserInfo(account: UserAccount) {
+    NetworkTools.sharedTools.loadUserInfo(token: account.access_token!, uid: account.uid) { result, error in
+      if error != nil {
+        print("加载用户失败")
+        return
+      }
+      // result 一定有内容
+      // 一定是字典
+      guard let dict = result as? [String: Any] else {
+        print("格式错误")
+        return
+      }
+      print(dict["screen_name"])
+      print(dict["avatar_large"])
+    }
   }
 }

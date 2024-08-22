@@ -45,6 +45,14 @@ extension NetworkTools {
     ]
     request(method: .POST, URLString: urlString, parameters: param, finished: finished)
   }
+  func loadUserInfo(token: String, uid: TimeInterval, finished: @escaping RequestCallBack) {
+    let urlString = "https://api.weibo.com/2/users/show.json"
+    let param = [
+      "access_token": token,
+      "uid": uid
+    ] as [String : Any]
+    request(method: .GET, URLString: urlString, parameters: param, finished: finished)
+  }
 }
 
 // MARK: - 封装 AFN 网络方法
