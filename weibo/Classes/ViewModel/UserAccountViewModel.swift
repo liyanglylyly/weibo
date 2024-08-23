@@ -16,11 +16,23 @@ class UserAccountViewModel {
     return NSHomeDirectory() + "/Documents/archive.plist"
   }
   
+  // 判断账户是否过期
+  private var isExpired: Bool {
+//    return account?.expire_date?.compare(NSDate()) == NSComparisonResult.OrderedDescending
+    return true
+  }
   init() {
     do {
       // 从磁盘读取归档数据
       let data = try Data(contentsOf: URL(fileURLWithPath: accountPath))
       account = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? UserAccount
+      // 判断token是否过期
+      if isExpired {
+        print("账户已经过期")
+        account = nil
+        return
+      }
+      print(account)
     } catch {
       print("Unarchiving failed: \(error)")
     }
