@@ -52,7 +52,7 @@ extension OAuthViewController: UIWebViewDelegate {
     return false
   }
   private func loadUserInfo(account: UserAccount) {
-    NetworkTools.sharedTools.loadUserInfo(token: account.access_token!, uid: account.uid) { result, error in
+    NetworkTools.sharedTools.loadUserInfo(token: account.access_token!, uid: account.uid as! TimeInterval) { result, error in
       if error != nil {
         print("加载用户失败")
         return
@@ -65,8 +65,10 @@ extension OAuthViewController: UIWebViewDelegate {
       }
       account.screen_name = dict["screen_name"] as? String
       account.avatar_large = dict["avatar_large"] as? String
-      self.title = account.screen_name
       print(account)
+      self.title = account.screen_name
+      account.saveUserInfo()
+      account.loadUserInfo()
     }
   }
 }
