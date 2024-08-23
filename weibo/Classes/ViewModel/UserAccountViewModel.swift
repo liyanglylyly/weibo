@@ -19,7 +19,12 @@ class UserAccountViewModel {
   // 判断账户是否过期
   private var isExpired: Bool {
 //    return account?.expire_date?.compare(NSDate()) == NSComparisonResult.OrderedDescending
-    return true
+    return false
+  }
+  
+  // 用户是否登录
+  var userLogin: Bool {
+    return account?.access_token != nil && !isExpired
   }
   init() {
     do {
