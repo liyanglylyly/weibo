@@ -29,6 +29,7 @@
 		B63CB62E2C701F9C004FD0B3 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CB62D2C701F9C004FD0B3 /* UIImageView+Extension.swift */; };
 		B6B80FBF2C703F2B005C53A8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B80FBE2C703F2B005C53A8 /* Common.swift */; };
 		B6CAC6892C79794C00BEEBCB /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAC6882C79794C00BEEBCB /* NewFeatureViewController.swift */; };
+		B6CAC68B2C79A96700BEEBCB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAC68A2C79A96700BEEBCB /* WelcomeViewController.swift */; };
 		B6D3A1B42C75FE7B0022AE85 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3A1B32C75FE7B0022AE85 /* UserAccount.swift */; };
 		D925C7F01120C89821B96DE9 /* Pods_weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4A8050ADA59B4BA6B17C78 /* Pods_weibo.framework */; };
 		DBCF7C52D5078C571D085B59 /* Pods_weibo_weiboUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E507A7F2BCEE30FD99C6FF /* Pods_weibo_weiboUITests.framework */; };
@@ -86,6 +87,7 @@
 		B63CB62D2C701F9C004FD0B3 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B6B80FBE2C703F2B005C53A8 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B6CAC6882C79794C00BEEBCB /* NewFeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
+		B6CAC68A2C79A96700BEEBCB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B6D3A1B32C75FE7B0022AE85 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		B84F298F16041D197EE459E5 /* Pods-weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.release.xcconfig"; path = "Target Support Files/Pods-weibo/Pods-weibo.release.xcconfig"; sourceTree = "<group>"; };
 		D32EE36EB43CCBCA9FA4E9ED /* Pods-weiboTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weiboTests.release.xcconfig"; path = "Target Support Files/Pods-weiboTests/Pods-weiboTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				B6CAC6882C79794C00BEEBCB /* NewFeatureViewController.swift */,
+				B6CAC68A2C79A96700BEEBCB /* WelcomeViewController.swift */,
 			);
 			path = NewFeature;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				B634299E2C6EC0F900138CC2 /* VisitorView.swift in Sources */,
 				B63429942C6E2B2F00138CC2 /* ProfileTableViewController.swift in Sources */,
 				B634298A2C6D781400138CC2 /* MainViewController.swift in Sources */,
+				B6CAC68B2C79A96700BEEBCB /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
