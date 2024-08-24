@@ -29,6 +29,10 @@ class NewFeatureViewController: UICollectionViewController {
     fatalError("init(coder:) has not been implemented")
   }
   
+  override var prefersStatusBarHidden: Bool {
+    return true
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // 注册可重用cell
@@ -51,15 +55,46 @@ class NewFeatureViewController: UICollectionViewController {
     cell.imageIndex = indexPath.item
     return cell
   }
+  
+  // ScrollView 停止滚动
+  override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    // 在最后一夜才调用动画方法
+    let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+    if page != NewFeatureImageCount - 1 {
+      return
+    }
+    let cell = collectionView.cellForItem(at: NSIndexPath(item: page, section: 0) as IndexPath) as! NewFeatureCell
+    cell.showButtonAnim()
+  }
 }
 
 // MARK: - 新特性 Cell
 private class NewFeatureCell: UICollectionViewCell {
   
+  /// 图像属性
   var imageIndex: Int = 0 {
     didSet {
       iconView.image = UIImage(named: "new_feature_\(imageIndex + 1)")
+      startButton.isHidden = true
     }
+  }
+  
+  /// 点击
+  @objc private func clickStartButton() {
+    
+  }
+  
+  /// 显示按钮动画
+  func showButtonAnim() {
+    startButton.isHidden = false
+    startButton.transform = CGAffineTransformMakeScale(0, 0)
+    startButton.isUserInteractionEnabled = false
+    UIView.animate(withDuration: 1.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 10, options: []) {
+      self.startButton.transform = CGAffineTransformIdentity
+    } completion: { _ in
+      self.startButton.isUserInteractionEnabled = true
+    }
+
   }
   
   // frame 的大小是由layout.itemSize 指定的
@@ -80,6 +115,8 @@ private class NewFeatureCell: UICollectionViewCell {
       make.centerX.equalTo(self.snp_centerX)
       make.bottom.equalTo(self.snp_bottom).multipliedBy(0.7)
     }
+    startButton.addTarget(self, action: #selector(clickStartButton), for: .touchUpInside)
+
   }
   
   // MARK: - 懒加载控件
