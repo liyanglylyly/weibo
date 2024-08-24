@@ -23,6 +23,7 @@ extension UIButton {
     self.init()
     setTitle(title, for: .normal)
     setTitleColor(color, for: .normal)
-//    setBackgroundImage(UIImage(named: backImageName), for: .normal)
+    sizeToFit()
+    setBackgroundImage(UIImage(named: imageName), for: .normal)
   }
 }
