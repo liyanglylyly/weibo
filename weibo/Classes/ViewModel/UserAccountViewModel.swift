@@ -41,10 +41,45 @@ class UserAccountViewModel {
         print("账户已经过期")
         account = nil
       }
-      print(account)
     } catch {
       print("Unarchiving failed: \(error)")
     }
 
+  }
+}
+
+
+extension UserAccountViewModel {
+  func loadAccessToken(code: String, finished: @escaping (_ isSuccessed: Bool) -> ()) {
+    NetworkTools.sharedTools.loadAccessToken(code: code) { (result, error) in
+      if error != nil {
+        finished(false)
+        return
+      }
+      self.account = UserAccount(dict: result as! [String: Any])
+      self.loadUserInfo(account: self.account!, finished: finished)
+    }
+  }
+  
+  func loadUserInfo(account: UserAccount, finished: @escaping (_ isSuccessed: Bool) -> ()) {
+    NetworkTools.sharedTools.loadUserInfo(token: account.access_token!, uid: account.uid) { result, error in
+      if error != nil {
+        print("加载用户失败")
+        finished(false)
+        return
+      }
+      // result 一定有内容
+      // 一定是字典
+      guard let dict = result as? [String: Any] else {
+        print("格式错误")
+        finished(false)
+        return
+      }
+      account.screen_name = dict["screen_name"] as? String
+      account.avatar_large = dict["avatar_large"] as? String
+      account.saveUserAccount(accountPath: self.accountPath)
+      //
+      finished(true)
+    }
   }
 }

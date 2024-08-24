@@ -51,27 +51,13 @@ class UserAccount: NSObject, NSCoding {
   }
   
   // MARK: - 保存当前对象
-  func saveUserInfo() {
+  func saveUserAccount(accountPath: String) {
     do {
       let data = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false)
-      try data.write(to: URL(fileURLWithPath: NSHomeDirectory() + "/Documents/archive.plist"))
-      print(NSHomeDirectory() + "/Documents/archive.plist")
+      try data.write(to: URL(fileURLWithPath: accountPath))
     } catch {
       
     }
-  }
-  
-  func loadUserInfo() {
-    do {
-      // 从磁盘读取归档数据
-      let data = try Data(contentsOf: URL(fileURLWithPath: NSHomeDirectory() + "/Documents/archive.plist"))
-      // 从NSData对象反归档出原始对象
-      if let loadedPerson = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? UserAccount {
-      }
-    } catch {
-      print("Unarchiving failed: \(error)")
-    }
-
   }
   
   // MARK: - 归档和解档
