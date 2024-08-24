@@ -27,6 +27,16 @@ class NetworkTools: AFHTTPSessionManager {
     tools.responseSerializer.acceptableContentTypes?.insert("text/html")
     return tools
   }()
+  
+  // 返回 token 字典
+  private var tokenDict: [String: Any]? {
+    if let token = UserAccountViewModel.sharedUserAccount.accessToken {
+      return [
+        "access_token": token
+      ]
+    }
+    return nil
+  }
 }
 
 extension NetworkTools {
@@ -45,13 +55,17 @@ extension NetworkTools {
     ]
     request(method: .POST, URLString: urlString, parameters: param, finished: finished)
   }
-  func loadUserInfo(token: String, uid: TimeInterval, finished: @escaping RequestCallBack) {
+  func loadUserInfo(uid: TimeInterval, finished: @escaping RequestCallBack) {
+    
+    guard var params = tokenDict else {
+      // 如果字典为nil, 通知调用方 token 无效
+      print("token 为空")
+      return
+    }
+    
     let urlString = "https://api.weibo.com/2/users/show.json"
-    let param = [
-      "access_token": token,
-      "uid": uid
-    ] as [String : Any]
-    request(method: .GET, URLString: urlString, parameters: param, finished: finished)
+    params["uid"] = uid
+    request(method: .GET, URLString: urlString, parameters: params, finished: finished)
   }
 }
 

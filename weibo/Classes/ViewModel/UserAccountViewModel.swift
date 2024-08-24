@@ -15,6 +15,13 @@ class UserAccountViewModel {
   
   var account: UserAccount?
   
+  var accessToken: String? {
+    if !isExpired {
+      return account?.access_token
+    }
+    return nil
+  }
+  
   private var accountPath: String {
     return NSHomeDirectory() + "/Documents/archive.plist"
   }
@@ -62,7 +69,7 @@ extension UserAccountViewModel {
   }
   
   func loadUserInfo(account: UserAccount, finished: @escaping (_ isSuccessed: Bool) -> ()) {
-    NetworkTools.sharedTools.loadUserInfo(token: account.access_token!, uid: account.uid) { result, error in
+    NetworkTools.sharedTools.loadUserInfo(uid: account.uid) { result, error in
       if error != nil {
         print("加载用户失败")
         finished(false)
