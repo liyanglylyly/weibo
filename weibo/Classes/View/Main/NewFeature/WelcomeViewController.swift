@@ -46,7 +46,10 @@ class WelcomeViewController: UIViewController {
       UIView.animate(withDuration: 0.8) {
         self.welcomeLabel.alpha = 1
       } completion: { _ in
-        
+        // 不推荐的写法
+//        UIApplication.shared.windows.last?.rootViewController = MainViewController()
+        //
+        NotificationCenter.default.post(name: NSNotification.Name(WBSwitchRootViewControllerNotifition), object: nil)
       }
 
     }

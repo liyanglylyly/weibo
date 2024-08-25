@@ -16,10 +16,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let windowScene = (scene as? UIWindowScene) else { return }
     window = UIWindow(frame: windowScene.coordinateSpace.bounds)
     window?.windowScene = windowScene
-//    window?.rootViewController = MainViewController()
-//    window?.rootViewController = NewFeatureViewController()
     window?.rootViewController = defaultRootViewController
     window?.makeKeyAndVisible()
+    NotificationCenter.default.addObserver(forName: NSNotification.Name(WBSwitchRootViewControllerNotifition), object: nil, queue: nil) { [weak self] notification in
+      self?.window?.rootViewController = MainViewController()
+    }
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self, name: NSNotification.Name(WBSwitchRootViewControllerNotifition), object: nil)
   }
 
   // 设置全局外观 - 在很多应用中，都会在SceneDelegate中设置所有需要控件的全局外观
