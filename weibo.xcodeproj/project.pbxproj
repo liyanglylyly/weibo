@@ -31,6 +31,7 @@
 		B6CAC6892C79794C00BEEBCB /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAC6882C79794C00BEEBCB /* NewFeatureViewController.swift */; };
 		B6CAC68B2C79A96700BEEBCB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAC68A2C79A96700BEEBCB /* WelcomeViewController.swift */; };
 		B6CAC68D2C7ADD1E00BEEBCB /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAC68C2C7ADD1E00BEEBCB /* Status.swift */; };
+		B6CAC6912C7B08CA00BEEBCB /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAC6902C7B08CA00BEEBCB /* StatusListViewModel.swift */; };
 		B6D3A1B42C75FE7B0022AE85 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3A1B32C75FE7B0022AE85 /* UserAccount.swift */; };
 		D925C7F01120C89821B96DE9 /* Pods_weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4A8050ADA59B4BA6B17C78 /* Pods_weibo.framework */; };
 		DBCF7C52D5078C571D085B59 /* Pods_weibo_weiboUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E507A7F2BCEE30FD99C6FF /* Pods_weibo_weiboUITests.framework */; };
@@ -90,6 +91,7 @@
 		B6CAC6882C79794C00BEEBCB /* NewFeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		B6CAC68A2C79A96700BEEBCB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B6CAC68C2C7ADD1E00BEEBCB /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		B6CAC6902C7B08CA00BEEBCB /* StatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
 		B6D3A1B32C75FE7B0022AE85 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		B84F298F16041D197EE459E5 /* Pods-weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.release.xcconfig"; path = "Target Support Files/Pods-weibo/Pods-weibo.release.xcconfig"; sourceTree = "<group>"; };
 		D32EE36EB43CCBCA9FA4E9ED /* Pods-weiboTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weiboTests.release.xcconfig"; path = "Target Support Files/Pods-weiboTests/Pods-weiboTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				B621E7462C78CA32007B8FA9 /* UserAccountViewModel.swift */,
+				B6CAC6902C7B08CA00BEEBCB /* StatusListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				B63429992C6E458500138CC2 /* UIButton+Extension.swift in Sources */,
 				B634299C2C6EBE1D00138CC2 /* VisitorTableViewController.swift in Sources */,
 				B634299E2C6EC0F900138CC2 /* VisitorView.swift in Sources */,
+				B6CAC6912C7B08CA00BEEBCB /* StatusListViewModel.swift in Sources */,
 				B63429942C6E2B2F00138CC2 /* ProfileTableViewController.swift in Sources */,
 				B634298A2C6D781400138CC2 /* MainViewController.swift in Sources */,
 				B6CAC68B2C79A96700BEEBCB /* WelcomeViewController.swift in Sources */,

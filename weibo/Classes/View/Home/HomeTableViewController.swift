@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 private let StatusCellNormalCellId = "StatusCellNormalCellId"
 
 class HomeTableViewController: VisitorTableViewController {
   
-  var dataList: [Status]?
-
+  private lazy var listViewModel = StatusListViewModel()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     if !UserAccountViewModel.sharedUserAccount.userLogin {
@@ -29,24 +30,11 @@ class HomeTableViewController: VisitorTableViewController {
   
   // 加载数据
   private func loadData() {
-    NetworkTools.sharedTools.loadStatus { (result, error) -> () in
-      if error != nil {
-        print("出错了")
-        return
+    listViewModel.loadStatus { isSuccess in
+      if !isSuccess {
+        SVProgressHUD.show(withStatus: "加载数据失败")
+       return
       }
-      let r = result as! [String: Any]
-      guard let array = r["statuses"] as? [[String: Any]] else {
-        print("数据格式有错误")
-        return
-      }
-      // 1. 可变的数组
-      var dataList = [Status]()
-      // 2. 遍历数组
-      for dict in array {
-        dataList.append(Status(dict: dict))
-      }
-      self.dataList = dataList
-      // 3. 刷新数据
       self.tableView.reloadData()
     }
   }
@@ -55,12 +43,12 @@ class HomeTableViewController: VisitorTableViewController {
 // MARK: - 数据源方法
 extension HomeTableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return dataList?.count ?? 0
+    return listViewModel.statusList.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalCellId, for: indexPath)
-    cell.textLabel?.text = dataList![indexPath.row].text
+    cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
     return cell
   }
 }
