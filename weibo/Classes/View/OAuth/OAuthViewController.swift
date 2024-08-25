@@ -7,12 +7,14 @@
 
 import UIKit
 import WebKit
+import SVProgressHUD
 
 class OAuthViewController: UIViewController {
   
   private lazy var webView = UIWebView()
   
   @objc private func close() {
+    SVProgressHUD.dismiss()
     dismiss(animated: true)
   }
   
@@ -38,12 +40,16 @@ extension OAuthViewController: UIWebViewDelegate {
     }
     guard let query = url.query, query.hasPrefix("code=") else {
       print("取消授权")
+      close()
       return false
     }
     let code = query.substring(from: "code=".endIndex)
     UserAccountViewModel.sharedUserAccount.loadAccessToken(code: code) { isSuccessed in
       if !isSuccessed {
-        print("失败了")
+        SVProgressHUD.showInfo(withStatus: "网络不给力")
+        delay(delta: 0.5) {
+          self.close()
+        }
         return
       }
       // dismiss 不会立即将控制器销毁
@@ -54,5 +60,13 @@ extension OAuthViewController: UIWebViewDelegate {
       }
     }
     return false
+  }
+  
+  func webViewDidStartLoad(_ webView: UIWebView) {
+    SVProgressHUD.show()
+  }
+  
+  func webViewDidFinishLoad(_ webView: UIWebView) {
+    SVProgressHUD.dismiss()
   }
 }

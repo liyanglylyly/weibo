@@ -14,3 +14,12 @@ let WBSwitchRootViewControllerNotifition = "WBSwitchRootViewControllerNotifition
 
 // 全局外观渲染颜色
 let WBAppearanceTintColor = UIColor.orange
+
+
+// MARK: - 全局函数
+/// 延迟在主线程执行函数
+func delay(delta: Double, callFunc: @escaping () -> ()) {
+  DispatchQueue.main.asyncAfter(deadline: .now() + delta) {
+    callFunc()
+  }
+}
