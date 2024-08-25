@@ -42,11 +42,15 @@ extension OAuthViewController: UIWebViewDelegate {
     }
     let code = query.substring(from: "code=".endIndex)
     UserAccountViewModel.sharedUserAccount.loadAccessToken(code: code) { isSuccessed in
-      if isSuccessed {
-        print("成功了")
-        self.dismiss(animated: true)
-      } else {
+      if !isSuccessed {
         print("失败了")
+        return
+      }
+      // dismiss 不会立即将控制器销毁
+      self.dismiss(animated: true) {
+        // 完成控制器销毁之后再发送通知
+        // 通知中心是同步的, 一旦发送通知, 会先执行监听方法, 直到结束后, 才执行后续代码
+        NotificationCenter.default.post(name: NSNotification.Name(WBSwitchRootViewControllerNotifition), object: "welcome")
       }
     }
     return false

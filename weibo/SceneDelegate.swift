@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.rootViewController = defaultRootViewController
     window?.makeKeyAndVisible()
     NotificationCenter.default.addObserver(forName: NSNotification.Name(WBSwitchRootViewControllerNotifition), object: nil, queue: nil) { [weak self] notification in
-      self?.window?.rootViewController = MainViewController()
+      let vc = notification.object != nil ? WelcomeViewController() : MainViewController()
+      self?.window?.rootViewController = vc
     }
   }
   
