@@ -44,6 +44,7 @@ extension OAuthViewController: UIWebViewDelegate {
     UserAccountViewModel.sharedUserAccount.loadAccessToken(code: code) { isSuccessed in
       if isSuccessed {
         print("成功了")
+        self.dismiss(animated: true)
       } else {
         print("失败了")
       }

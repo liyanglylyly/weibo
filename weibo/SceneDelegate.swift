@@ -18,9 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.windowScene = windowScene
 //    window?.rootViewController = MainViewController()
 //    window?.rootViewController = NewFeatureViewController()
-    window?.rootViewController = WelcomeViewController()
+    window?.rootViewController = defaultRootViewController
     window?.makeKeyAndVisible()
-    print(isNewVersion)
   }
 
   // 设置全局外观 - 在很多应用中，都会在SceneDelegate中设置所有需要控件的全局外观
@@ -33,6 +32,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 extension SceneDelegate {
+  
+  // 启动的根视图控制器
+  private var defaultRootViewController: UIViewController {
+    // 1. 判断是否登录
+    if UserAccountViewModel.sharedUserAccount.userLogin {
+      return isNewVersion ? NewFeatureViewController() : WelcomeViewController()
+    }
+    // 2. 没有登录返回主控制器
+    return MainViewController()
+  }
+  
   // 判断是否是最新版本
   private var isNewVersion: Bool {
     // 1. 当前版本
