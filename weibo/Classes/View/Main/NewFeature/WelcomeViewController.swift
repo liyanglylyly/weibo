@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class WelcomeViewController: UIViewController {
   
   override func loadView() {
@@ -14,8 +14,10 @@ class WelcomeViewController: UIViewController {
     setupUI()
   }
 
+  // 视图加载完成之后的后续处理, 通常用来设置数据
   override func viewDidLoad() {
     super.viewDidLoad()
+    iconView.sd_setImage(with: UserAccountViewModel.sharedUserAccount.avatarUrl as URL, placeholderImage: UIImage(named: "avatar_default_big"))
   }
   
   /**
@@ -27,7 +29,7 @@ class WelcomeViewController: UIViewController {
    *    - 在运行循环结束前，调用 layoutSubviews 函数统一设置 frame
    *    -  如果希望某些约束提前更新 使用 layoutIfNeeded 函数让自动布局系统提前更新当前收集到的约束变化
    */
-  
+  //  视图已经显示, 通常可以动画/键盘处理
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     // 1. 更改约束 -> 改变位置
