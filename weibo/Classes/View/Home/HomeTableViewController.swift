@@ -35,6 +35,7 @@ class HomeTableViewController: VisitorTableViewController {
         SVProgressHUD.show(withStatus: "加载数据失败")
        return
       }
+      print(self.listViewModel.statusList)
       self.tableView.reloadData()
     }
   }
@@ -43,12 +44,12 @@ class HomeTableViewController: VisitorTableViewController {
 // MARK: - 数据源方法
 extension HomeTableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return listViewModel.statusList.count ?? 0
+    return listViewModel.statusList.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalCellId, for: indexPath)
-    cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
+    cell.textLabel?.text = listViewModel.statusList[indexPath.row].user?.screen_name
     return cell
   }
 }
