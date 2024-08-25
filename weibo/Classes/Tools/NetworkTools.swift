@@ -106,3 +106,17 @@ extension NetworkTools {
 //    }
   }
 }
+
+// MARK: - 微博数据相关
+extension NetworkTools {
+  /// 加载微博数据
+  func loadStatus(finished: @escaping RequestCallBack) {
+    guard let params = tokenDict else {
+      // 如果字典为nil, 通知调用方 token 无效
+      print("token 为空")
+      return
+    }
+    let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+    request(method: .GET, URLString: urlString, parameters: params, finished: finished)
+  }
+}
