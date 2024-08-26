@@ -26,6 +26,7 @@ class HomeTableViewController: VisitorTableViewController {
   
   private func prepareTableView() {
     tableView.register(StatusCell.self, forCellReuseIdentifier: StatusCellNormalCellId)
+    tableView.rowHeight = 200
   }
   
   // 加载数据
