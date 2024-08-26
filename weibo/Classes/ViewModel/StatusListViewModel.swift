@@ -9,7 +9,7 @@ import Foundation
 
 class StatusListViewModel {
     
-  lazy var statusList = [Status]()
+  lazy var statusList = [StatusViewModel]()
   
   func loadStatus(finished: @escaping (_ isSuccess: Bool) -> ()) {
     NetworkTools.sharedTools.loadStatus { (result, error) -> () in
@@ -25,10 +25,10 @@ class StatusListViewModel {
         return
       }
       // 1. 可变的数组
-      var dataList = [Status]()
+      var dataList = [StatusViewModel]()
       // 2. 遍历数组
       for dict in array {
-        dataList.append(Status(dict: dict))
+        dataList.append(StatusViewModel(status: Status(dict: dict)))
       }
       // 3. 拼接数据
       self.statusList = dataList + self.statusList

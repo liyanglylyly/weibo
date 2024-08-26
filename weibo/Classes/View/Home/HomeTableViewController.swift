@@ -49,7 +49,7 @@ extension HomeTableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalCellId, for: indexPath)
-    cell.textLabel?.text = listViewModel.statusList[indexPath.row].user?.screen_name
+    cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.user?.screen_name
     return cell
   }
 }
