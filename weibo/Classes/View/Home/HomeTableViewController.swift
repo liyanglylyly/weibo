@@ -25,7 +25,7 @@ class HomeTableViewController: VisitorTableViewController {
   }
   
   private func prepareTableView() {
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: StatusCellNormalCellId)
+    tableView.register(StatusCell.self, forCellReuseIdentifier: StatusCellNormalCellId)
   }
   
   // 加载数据
@@ -48,8 +48,9 @@ extension HomeTableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalCellId, for: indexPath)
-    cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.user?.screen_name
+    let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalCellId, for: indexPath) as! StatusCell
+//    cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.user?.screen_name
+    cell.viewModel = listViewModel.statusList[indexPath.row]
     return cell
   }
 }
