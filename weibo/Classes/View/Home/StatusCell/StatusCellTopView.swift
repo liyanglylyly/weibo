@@ -12,6 +12,17 @@ let StatusCellIconWidth: CGFloat = 35
 
 class StatusCellTopView: UIView {
   
+  var viewModel: StatusViewModel? {
+    didSet {
+      nameLabel.text = viewModel?.status.user?.screen_name
+      iconView.sd_setImage(with: viewModel?.userProfileUrl, placeholderImage: viewModel?.userDefaultIconView)
+      memberIconView.image = viewModel?.userMemberImage
+      vipIconView.image = viewModel?.userVipImage
+      timeLabel.text = "刚刚"
+      sourceLabel.text = "来自黑马"
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupUI()

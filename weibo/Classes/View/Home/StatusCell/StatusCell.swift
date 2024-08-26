@@ -12,7 +12,7 @@ class StatusCell: UITableViewCell {
   // 微博视图模型
   var viewModel: StatusViewModel? {
     didSet {
-      
+      topView.viewModel = viewModel
     }
   }
   
