@@ -54,11 +54,9 @@ extension SceneDelegate {
     // 1. 当前版本
     let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     let version = Double(currentVersion)!
-    print("当前版本 \(String(describing: version))")
     // 2. 之前的版本, 把当前的版本保存在用户偏好
     let sandboxVersionKey = "sandboxVersionKey"
     let sandboxVersion = UserDefaults.standard.double(forKey: sandboxVersionKey)
-    print("之前版本 \(sandboxVersion)")
     // 3. 保存当前版本
     UserDefaults.standard.set(version, forKey: sandboxVersionKey)
     return version > sandboxVersion

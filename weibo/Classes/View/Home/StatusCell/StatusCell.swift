@@ -13,6 +13,7 @@ class StatusCell: UITableViewCell {
   var viewModel: StatusViewModel? {
     didSet {
       topView.viewModel = viewModel
+      contentLabel.text = viewModel?.status.text
     }
   }
   
@@ -27,7 +28,7 @@ class StatusCell: UITableViewCell {
   
  // MARK: - 懒加载控件
   private lazy var topView: StatusCellTopView = StatusCellTopView()
-  private lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15)
+  private lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15, screenInset: StatusCellMargin)
   private lazy var bottomView: StatusCellBottomView = StatusCellBottomView()
 }
 
@@ -36,12 +37,17 @@ extension StatusCell {
   private func setupUI() {
     // 1. 添加控件
     contentView.addSubview(topView)
+    contentView.addSubview(contentLabel)
     // 2. 自动布局
     topView.snp_makeConstraints { make in
       make.top.equalTo(contentView.snp_top)
       make.left.equalTo(contentView.snp_left)
       make.right.equalTo(contentView.snp_right)
-      make.height.equalTo(60)
+      make.height.equalTo(StatusCellMargin + StatusCellIconWidth)
+    }
+    contentLabel.snp_makeConstraints { make in
+      make.top.equalTo(topView.snp_bottom).offset(StatusCellMargin)
+      make.left.equalTo(contentView.snp_left).offset(StatusCellMargin)
     }
   }
 }
