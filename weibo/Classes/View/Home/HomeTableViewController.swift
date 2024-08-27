@@ -26,6 +26,7 @@ class HomeTableViewController: VisitorTableViewController {
   
   private func prepareTableView() {
     tableView.register(StatusCell.self, forCellReuseIdentifier: StatusCellNormalCellId)
+    tableView.separatorStyle = .none
     // 自动计算行高 - 需要一个自上而下的自动布局的控件，指定一个向下的约束
     tableView.estimatedRowHeight = 200
     tableView.rowHeight = UITableView.automaticDimension

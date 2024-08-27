@@ -44,7 +44,11 @@ class StatusCellTopView: UIView {
 
 extension StatusCellTopView {
   private func setupUI() {
-    backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+    backgroundColor = UIColor.white
+    // 0. 添加分割视图
+    let sepView = UIView()
+    sepView.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+    addSubview(sepView)
     // 1. 添加控件
     addSubview(iconView)
     addSubview(nameLabel)
@@ -53,8 +57,14 @@ extension StatusCellTopView {
     addSubview(timeLabel)
     addSubview(sourceLabel)
     // 2. 自动布局
+    sepView.snp_makeConstraints { make in
+      make.top.equalTo(self.snp_top)
+      make.left.equalTo(self.snp_left)
+      make.right.equalTo(self.snp_right)
+      make.height.equalTo(StatusCellMargin)
+    }
     iconView.snp_makeConstraints { make in
-      make.top.equalTo(self.snp_top).offset(StatusCellMargin)
+      make.top.equalTo(sepView.snp_bottom).offset(StatusCellMargin)
       make.left.equalTo(self.snp_left).offset(StatusCellMargin)
       make.width.equalTo(StatusCellIconWidth)
       make.height.equalTo(StatusCellIconWidth)
