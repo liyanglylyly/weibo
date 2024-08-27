@@ -48,6 +48,8 @@ extension StatusCell {
     contentLabel.snp_makeConstraints { make in
       make.top.equalTo(topView.snp_bottom).offset(StatusCellMargin)
       make.left.equalTo(contentView.snp_left).offset(StatusCellMargin)
+      // 指定向下的约束
+      make.bottom.equalTo(contentView.snp_bottom).offset(-StatusCellMargin)
     }
   }
 }
