@@ -26,4 +26,13 @@ extension UIButton {
     sizeToFit()
     setBackgroundImage(UIImage(named: imageName), for: .normal)
   }
+  
+  convenience init(title: String, fontSize: CGFloat, color: UIColor, imageName: String) {
+    self.init()
+    setTitle(title, for: .normal)
+    setTitleColor(color, for: .normal)
+    setImage(UIImage(named: imageName), for: .normal)
+    titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+    sizeToFit()
+  }
 }

@@ -38,6 +38,7 @@ extension StatusCell {
     // 1. 添加控件
     contentView.addSubview(topView)
     contentView.addSubview(contentLabel)
+    contentView.addSubview(bottomView)
     // 2. 自动布局
     topView.snp_makeConstraints { make in
       make.top.equalTo(contentView.snp_top)
@@ -48,8 +49,15 @@ extension StatusCell {
     contentLabel.snp_makeConstraints { make in
       make.top.equalTo(topView.snp_bottom).offset(StatusCellMargin)
       make.left.equalTo(contentView.snp_left).offset(StatusCellMargin)
+      
+    }
+    bottomView.snp_makeConstraints { make in
+      make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
+      make.left.equalTo(contentView.snp_left)
+      make.right.equalTo(contentView.snp_right)
+      make.height.equalTo(44)
       // 指定向下的约束
-      make.bottom.equalTo(contentView.snp_bottom).offset(-StatusCellMargin)
+      make.bottom.equalTo(contentView.snp_bottom)
     }
   }
 }
