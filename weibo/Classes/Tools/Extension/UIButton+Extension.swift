@@ -19,12 +19,12 @@ extension UIButton {
     sizeToFit()
   }
   
-  convenience init(title: String, color: UIColor, imageName: String) {
+  convenience init(title: String, color: UIColor, backImageName: String) {
     self.init()
     setTitle(title, for: .normal)
     setTitleColor(color, for: .normal)
     sizeToFit()
-    setBackgroundImage(UIImage(named: imageName), for: .normal)
+    setBackgroundImage(UIImage(named: backImageName), for: .normal)
   }
   
   convenience init(title: String, fontSize: CGFloat, color: UIColor, imageName: String) {

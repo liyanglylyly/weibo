@@ -58,8 +58,8 @@ class VisitorView: UIView {
   private lazy var maskIconView: UIImageView = UIImageView(imageName: "visitordiscover_feed_mask_smallicon")
   private lazy var homeIconView: UIImageView = UIImageView(imageName: "visitordiscover_feed_image_house")
   private lazy var messageLabel: UILabel = UILabel(title: "关注一些人, 回这里看看有什么惊喜")
-  lazy var registerButton: UIButton = UIButton(title: "注册", color: UIColor.orange, imageName: "common_button_white_disable")
-  lazy var loginButton: UIButton = UIButton(title: "登录", color: UIColor.darkGray, imageName: "common_button_white_disable")
+  lazy var registerButton: UIButton = UIButton(title: "注册", color: UIColor.orange, backImageName: "common_button_white_disable")
+  lazy var loginButton: UIButton = UIButton(title: "登录", color: UIColor.darkGray, backImageName: "common_button_white_disable")
 }
 
 extension VisitorView {
