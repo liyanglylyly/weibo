@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 // 微博视图模型, 处理单条微博的业务逻辑
-class StatusViewModel {
+class StatusViewModel: CustomStringConvertible {
   var status: Status
   
   // 用户头像url
@@ -36,5 +36,11 @@ class StatusViewModel {
   
   init(status: Status) {
     self.status = status
+    print(status)
+  }
+  
+  // 描述信息
+  var description: String {
+    return status.description
   }
 }
