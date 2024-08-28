@@ -28,8 +28,8 @@ class HomeTableViewController: VisitorTableViewController {
     tableView.register(StatusCell.self, forCellReuseIdentifier: StatusCellNormalCellId)
     tableView.separatorStyle = .none
     // 自动计算行高 - 需要一个自上而下的自动布局的控件，指定一个向下的约束
-    tableView.estimatedRowHeight = 200
-    tableView.rowHeight = UITableView.automaticDimension
+    tableView.estimatedRowHeight = 400
+//    tableView.rowHeight = UITableView.automaticDimension
   }
   
   // 加载数据
@@ -55,5 +55,11 @@ extension HomeTableViewController {
 //    cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.user?.screen_name
     cell.viewModel = listViewModel.statusList[indexPath.row]
     return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let vm = listViewModel.statusList[indexPath.item]
+    let cell = StatusCell(style: .default, reuseIdentifier: StatusCellNormalCellId)
+    return cell.rowHeight(vm: vm)
   }
 }

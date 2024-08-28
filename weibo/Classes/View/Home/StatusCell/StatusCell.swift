@@ -14,7 +14,23 @@ class StatusCell: UITableViewCell {
     didSet {
       topView.viewModel = viewModel
       contentLabel.text = viewModel?.status.text
+      pictureView.viewModel = viewModel
+      // 设置配图视图 - 设置配图模型之后, 配图视图有能计算大小
+      pictureView.snp_updateConstraints { make in
+        make.height.equalTo(pictureView.bounds.height)
+//        make.width.equalTo(pictureView.bounds.width)
+      }
     }
+  }
+  
+  // 根据指定的视图模型计算行高
+  func rowHeight(vm: StatusViewModel) -> CGFloat {
+    // 1. 计算视图模型
+    viewModel = vm
+    // 2. 强制更新所有约束 -> 所有控件的frame都会被计算正确
+    contentView.layoutIfNeeded()
+    // 3. 返回底部视图最大高度
+    return CGRectGetMaxY(bottomView.frame)
   }
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -55,8 +71,8 @@ extension StatusCell {
     }
     pictureView.snp_makeConstraints { make in
       make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
-      make.left.equalTo(contentLabel.snp_left).offset(StatusCellMargin)
-      make.width.equalTo(300)
+      make.left.equalTo(contentLabel.snp_left)
+      make.width.equalTo(contentView.snp_width).offset(-2 * StatusCellMargin)
       make.height.equalTo(90)
     }
     bottomView.snp_makeConstraints { make in
@@ -65,7 +81,7 @@ extension StatusCell {
       make.right.equalTo(contentView.snp_right)
       make.height.equalTo(44)
       // 指定向下的约束
-      make.bottom.equalTo(contentView.snp_bottom)
+//      make.bottom.equalTo(contentView.snp_bottom)
     }
   }
 }
