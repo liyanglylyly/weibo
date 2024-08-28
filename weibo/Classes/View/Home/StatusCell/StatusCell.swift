@@ -29,6 +29,8 @@ class StatusCell: UITableViewCell {
  // MARK: - 懒加载控件
   private lazy var topView: StatusCellTopView = StatusCellTopView()
   private lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15, screenInset: StatusCellMargin)
+  // 配图视图
+  private lazy var pictureView: StatusPictureView = StatusPictureView()
   private lazy var bottomView: StatusCellBottomView = StatusCellBottomView()
 }
 
@@ -38,6 +40,7 @@ extension StatusCell {
     // 1. 添加控件
     contentView.addSubview(topView)
     contentView.addSubview(contentLabel)
+    contentView.addSubview(pictureView)
     contentView.addSubview(bottomView)
     // 2. 自动布局
     topView.snp_makeConstraints { make in
@@ -49,10 +52,15 @@ extension StatusCell {
     contentLabel.snp_makeConstraints { make in
       make.top.equalTo(topView.snp_bottom).offset(StatusCellMargin)
       make.left.equalTo(contentView.snp_left).offset(StatusCellMargin)
-      
+    }
+    pictureView.snp_makeConstraints { make in
+      make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
+      make.left.equalTo(contentLabel.snp_left).offset(StatusCellMargin)
+      make.width.equalTo(300)
+      make.height.equalTo(90)
     }
     bottomView.snp_makeConstraints { make in
-      make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
+      make.top.equalTo(pictureView.snp_bottom).offset(StatusCellMargin)
       make.left.equalTo(contentView.snp_left)
       make.right.equalTo(contentView.snp_right)
       make.height.equalTo(44)

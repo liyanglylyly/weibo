@@ -30,6 +30,7 @@
 		B634299E2C6EC0F900138CC2 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634299D2C6EC0F900138CC2 /* VisitorView.swift */; };
 		B63CB62C2C701C1F004FD0B3 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CB62B2C701C1F004FD0B3 /* UILabel+Extension.swift */; };
 		B63CB62E2C701F9C004FD0B3 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CB62D2C701F9C004FD0B3 /* UIImageView+Extension.swift */; };
+		B652CA932C7EDF8100021BAF /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652CA922C7EDF8100021BAF /* StatusPictureView.swift */; };
 		B6B80FBF2C703F2B005C53A8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B80FBE2C703F2B005C53A8 /* Common.swift */; };
 		B6CAC6892C79794C00BEEBCB /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAC6882C79794C00BEEBCB /* NewFeatureViewController.swift */; };
 		B6CAC68B2C79A96700BEEBCB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAC68A2C79A96700BEEBCB /* WelcomeViewController.swift */; };
@@ -95,6 +96,7 @@
 		B634299D2C6EC0F900138CC2 /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		B63CB62B2C701C1F004FD0B3 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		B63CB62D2C701F9C004FD0B3 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		B652CA922C7EDF8100021BAF /* StatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		B6B80FBE2C703F2B005C53A8 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B6CAC6882C79794C00BEEBCB /* NewFeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		B6CAC68A2C79A96700BEEBCB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				B62188DC2C7CB2820096702D /* StatusCell.swift */,
 				B62188DE2C7CB2E80096702D /* StatusCellTopView.swift */,
 				B62188E02C7CB3070096702D /* StatusCellBottomView.swift */,
+				B652CA922C7EDF8100021BAF /* StatusPictureView.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				B62188DF2C7CB2E80096702D /* StatusCellTopView.swift in Sources */,
 				B625B0012C73870D00DBB0D3 /* NetworkTools.swift in Sources */,
 				B621E7472C78CA32007B8FA9 /* UserAccountViewModel.swift in Sources */,
+				B652CA932C7EDF8100021BAF /* StatusPictureView.swift in Sources */,
 				B63429482C6D747600138CC2 /* AppDelegate.swift in Sources */,
 				B6B80FBF2C703F2B005C53A8 /* Common.swift in Sources */,
 				B634294A2C6D747600138CC2 /* SceneDelegate.swift in Sources */,
