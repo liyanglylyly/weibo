@@ -26,6 +26,9 @@ class StatusViewModel: CustomStringConvertible {
     return UIImage(named: "avatar_vip")!
   }
   
+  /// 缩略图URL数组 - 存储型属性
+  var thumbnailUrls: [URL]?
+  
   // 用户会员图标
   var userMemberImage: UIImage {
 //    if status.user?.mbrank > 0 && status.user!.mbrank < 7 {
@@ -36,11 +39,19 @@ class StatusViewModel: CustomStringConvertible {
   
   init(status: Status) {
     self.status = status
+    // 根据模型，生成缩略图数组
+    if status.pic_urls!.count > 0 {
+      thumbnailUrls = [URL]()
+      for dict in status.pic_urls! {
+        let url = URL(string: dict["thumbnail_pic"]!)
+        thumbnailUrls?.append(url!)
+      }
+    }
     print(status)
   }
   
   // 描述信息
   var description: String {
-    return status.description
+    return status.description + " 配图数组\(thumbnailUrls)"
   }
 }
