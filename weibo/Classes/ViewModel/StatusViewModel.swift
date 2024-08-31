@@ -33,6 +33,8 @@ class StatusViewModel: CustomStringConvertible {
   }
   
   /// 缩略图URL数组 - 存储型属性
+  /// 如果是原创微博，可以有图，可以没有图
+  /// 如果是转发微博，一定没有图， retweeted_status 中，可以有图，可以没有图
   var thumbnailUrls: [URL]?
   
   // 用户会员图标
@@ -46,9 +48,9 @@ class StatusViewModel: CustomStringConvertible {
   init(status: Status) {
     self.status = status
     // 根据模型，生成缩略图数组
-    if status.pic_urls!.count > 0 {
+    if let urls = status.retweeted_status?.pic_urls ?? status.pic_urls {
       thumbnailUrls = [URL]()
-      for dict in status.pic_urls! {
+      for dict in urls {
         let url = URL(string: dict["thumbnail_pic"]!)
         thumbnailUrls?.append(url!)
       }
