@@ -19,6 +19,8 @@ class StatusCell: UITableViewCell {
       pictureView.snp_updateConstraints { make in
         make.height.equalTo(pictureView.bounds.height)
 //        make.width.equalTo(pictureView.bounds.width)
+        let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
+        make.top.equalTo(contentLabel.snp_bottom).offset(offset)
       }
     }
   }
@@ -36,6 +38,7 @@ class StatusCell: UITableViewCell {
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     setupUI()
+    selectionStyle = .none
   }
   
   required init?(coder: NSCoder) {

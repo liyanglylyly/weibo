@@ -123,5 +123,10 @@ private class StatusPictureCell: UICollectionViewCell {
     }
   }
   
-  private lazy var iconView: UIImageView = UIImageView()
+  private lazy var iconView: UIImageView = {
+    let iv = UIImageView()
+    iv.contentMode = .scaleAspectFill
+    iv.clipsToBounds = true
+    return iv
+  }()
 }

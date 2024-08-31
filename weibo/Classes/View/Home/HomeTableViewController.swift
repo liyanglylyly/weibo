@@ -62,4 +62,8 @@ extension HomeTableViewController {
     let vm = listViewModel.statusList[indexPath.item]
     return vm.rowHeight
   }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+  }
 }
