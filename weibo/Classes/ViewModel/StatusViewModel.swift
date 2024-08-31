@@ -12,6 +12,12 @@ import UIKit
 class StatusViewModel: CustomStringConvertible {
   var status: Status
   
+  // 缓存的行高
+  lazy var rowHeight: CGFloat = {
+    let cell = StatusCell(style: .default, reuseIdentifier: StatusCellNormalCellId)
+    return cell.rowHeight(vm: self)
+  }()
+  
   // 用户头像url
   var userProfileUrl: URL {
     return URL(string: status.user?.profile_image_url ?? "")!
@@ -52,6 +58,6 @@ class StatusViewModel: CustomStringConvertible {
   
   // 描述信息
   var description: String {
-    return status.description + " 配图数组\(thumbnailUrls)"
+    return status.description + " 配图数组\(String(describing: thumbnailUrls))"
   }
 }

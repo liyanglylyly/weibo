@@ -8,7 +8,7 @@
 import UIKit
 import SVProgressHUD
 
-private let StatusCellNormalCellId = "StatusCellNormalCellId"
+let StatusCellNormalCellId = "StatusCellNormalCellId"
 
 class HomeTableViewController: VisitorTableViewController {
   
@@ -57,9 +57,9 @@ extension HomeTableViewController {
     return cell
   }
   
+  // 实际开发中行高要缓存 - 放在视图模型中
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     let vm = listViewModel.statusList[indexPath.item]
-    let cell = StatusCell(style: .default, reuseIdentifier: StatusCellNormalCellId)
-    return cell.rowHeight(vm: vm)
+    return vm.rowHeight
   }
 }
