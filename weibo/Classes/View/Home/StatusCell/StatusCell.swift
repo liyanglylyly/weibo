@@ -18,9 +18,9 @@ class StatusCell: UITableViewCell {
       // 设置配图视图 - 设置配图模型之后, 配图视图有能计算大小
       pictureView.snp_updateConstraints { make in
         make.height.equalTo(pictureView.bounds.height)
-//        make.width.equalTo(pictureView.bounds.width)
-        let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
-        make.top.equalTo(contentLabel.snp_bottom).offset(offset)
+        make.width.equalTo(pictureView.bounds.width)
+//        let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
+//        make.top.equalTo(contentLabel.snp_bottom).offset(offset)
       }
     }
   }
@@ -46,16 +46,16 @@ class StatusCell: UITableViewCell {
   }
   
  // MARK: - 懒加载控件
-  private lazy var topView: StatusCellTopView = StatusCellTopView()
-  private lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15, screenInset: StatusCellMargin)
+  lazy var topView: StatusCellTopView = StatusCellTopView()
+  lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15, screenInset: StatusCellMargin)
   // 配图视图
-  private lazy var pictureView: StatusPictureView = StatusPictureView()
-  private lazy var bottomView: StatusCellBottomView = StatusCellBottomView()
+  lazy var pictureView: StatusPictureView = StatusPictureView()
+  lazy var bottomView: StatusCellBottomView = StatusCellBottomView()
 }
 
 
 extension StatusCell {
-  private func setupUI() {
+  @objc func setupUI() {
     // 1. 添加控件
     contentView.addSubview(topView)
     contentView.addSubview(contentLabel)
@@ -72,12 +72,12 @@ extension StatusCell {
       make.top.equalTo(topView.snp_bottom).offset(StatusCellMargin)
       make.left.equalTo(contentView.snp_left).offset(StatusCellMargin)
     }
-    pictureView.snp_makeConstraints { make in
-      make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
-      make.left.equalTo(contentLabel.snp_left)
-      make.width.equalTo(contentView.snp_width).offset(-2 * StatusCellMargin)
-      make.height.equalTo(90)
-    }
+//    pictureView.snp_makeConstraints { make in
+//      make.top.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin)
+//      make.left.equalTo(contentLabel.snp_left)
+//      make.width.equalTo(contentView.snp_width).offset(-2 * StatusCellMargin)
+//      make.height.equalTo(90)
+//    }
     bottomView.snp_makeConstraints { make in
       make.top.equalTo(pictureView.snp_bottom).offset(StatusCellMargin)
       make.left.equalTo(contentView.snp_left)
