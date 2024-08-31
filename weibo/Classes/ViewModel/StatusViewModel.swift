@@ -14,7 +14,7 @@ class StatusViewModel: CustomStringConvertible {
   
   // 缓存的行高
   lazy var rowHeight: CGFloat = {
-    let cell = StatusCell(style: .default, reuseIdentifier: StatusCellNormalCellId)
+    let cell = StatusRetweetedCell(style: .default, reuseIdentifier: StatusCellRetweetedCellId)
     return cell.rowHeight(vm: self)
   }()
   
