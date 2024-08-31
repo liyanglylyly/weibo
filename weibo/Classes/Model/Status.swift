@@ -14,6 +14,8 @@ class Status: NSObject {
   @objc var source: String?
   @objc var user: User?
   @objc var pic_urls: [[String: String]]?
+  // 转发的微博
+  @objc var retweeted_status: Status?
   
   init(dict: [String: Any]) {
     super.init()
@@ -29,6 +31,12 @@ class Status: NSObject {
       }
       return
     }
+    if key == "retweeted_status" {
+      if let dict = value as? [String: Any] {
+        retweeted_status = Status(dict: dict)
+      }
+      return
+    }
     super.setValue(value, forKey: key)
   }
 
@@ -41,7 +49,7 @@ class Status: NSObject {
   }
   
   override var description: String {
-    let keys = ["id", "text", "created_at", "source", "user", "pic_urls"]
+    let keys = ["id", "text", "created_at", "source", "user", "pic_urls", "retweeted_status"]
     return dictionaryWithValues(forKeys: keys).description
   }
 }
