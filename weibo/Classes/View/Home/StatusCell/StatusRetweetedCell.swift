@@ -8,6 +8,21 @@
 import UIKit
 
 class StatusRetweetedCell: StatusCell {
+  
+  /// 如果继承父类的属性
+  ///  1. 需要override
+  ///  2. 不需要super
+  ///  3. 先执行父类的 didSet, 再执行子类的 didSet
+  override var viewModel: StatusViewModel? {
+    didSet {
+      retweetedLabel.text = viewModel?.retweetedText
+      pictureView.snp_updateConstraints { make in
+        let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
+        make.top.equalTo(retweetedLabel.snp_bottom).offset(offset)
+      }
+    }
+  }
+  
   // MARK: - 懒加载控件
   private lazy var backButton: UIButton = {
     let button = UIButton()

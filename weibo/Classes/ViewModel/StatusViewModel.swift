@@ -37,6 +37,13 @@ class StatusViewModel: CustomStringConvertible {
   /// 如果是转发微博，一定没有图， retweeted_status 中，可以有图，可以没有图
   var thumbnailUrls: [URL]?
   
+  var retweetedText: String? {
+    guard let s = status.retweeted_status else {
+      return nil
+    }
+    return "@" + (s.user?.screen_name ?? "") + ":" + (s.text ?? "")
+  }
+  
   // 用户会员图标
   var userMemberImage: UIImage {
 //    if status.user?.mbrank > 0 && status.user!.mbrank < 7 {
