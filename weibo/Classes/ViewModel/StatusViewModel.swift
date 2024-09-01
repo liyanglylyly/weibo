@@ -12,9 +12,22 @@ import UIKit
 class StatusViewModel: CustomStringConvertible {
   var status: Status
   
+  /// 表格的可重用标识
+  var cellId: String {
+    return status.retweeted_status != nil ? StatusCellRetweetedCellId : StatusCellNormalCellId
+  }
+  
   // 缓存的行高
   lazy var rowHeight: CGFloat = {
-    let cell = StatusRetweetedCell(style: .default, reuseIdentifier: StatusCellRetweetedCellId)
+    // 定义cell
+    var cell: StatusCell
+    // 根据是否是转发微博，决定cell的创建
+    if self.status.retweeted_status != nil {
+      cell = StatusRetweetedCell(style: .default, reuseIdentifier: self.cellId)
+    } else {
+      cell = StatusNormalCell(style: .default, reuseIdentifier: self.cellId)
+    }
+    //
     return cell.rowHeight(vm: self)
   }()
   

@@ -28,6 +28,7 @@ class HomeTableViewController: VisitorTableViewController {
   }
   
   private func prepareTableView() {
+    tableView.register(StatusNormalCell.self, forCellReuseIdentifier: StatusCellNormalCellId)
     tableView.register(StatusRetweetedCell.self, forCellReuseIdentifier: StatusCellRetweetedCellId)
     tableView.separatorStyle = .none
     // 自动计算行高 - 需要一个自上而下的自动布局的控件，指定一个向下的约束
@@ -54,9 +55,10 @@ extension HomeTableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellRetweetedCellId, for: indexPath) as! StatusCell
+    let vm = listViewModel.statusList[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: vm.cellId, for: indexPath) as! StatusCell
 //    cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.user?.screen_name
-    cell.viewModel = listViewModel.statusList[indexPath.row]
+    cell.viewModel = vm
     return cell
   }
   

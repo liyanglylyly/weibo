@@ -18,7 +18,7 @@ class StatusCell: UITableViewCell {
       // 设置配图视图 - 设置配图模型之后, 配图视图有能计算大小
       pictureView.snp_updateConstraints { make in
         make.height.equalTo(pictureView.bounds.height)
-        make.width.equalTo(pictureView.bounds.width)
+//        make.width.equalTo(pictureView.bounds.width)
 //        let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
 //        make.top.equalTo(contentLabel.snp_bottom).offset(offset)
       }

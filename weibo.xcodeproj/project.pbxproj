@@ -31,6 +31,7 @@
 		B63CB62C2C701C1F004FD0B3 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CB62B2C701C1F004FD0B3 /* UILabel+Extension.swift */; };
 		B63CB62E2C701F9C004FD0B3 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CB62D2C701F9C004FD0B3 /* UIImageView+Extension.swift */; };
 		B652CA932C7EDF8100021BAF /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652CA922C7EDF8100021BAF /* StatusPictureView.swift */; };
+		B673636A2C83F0B200559F0D /* StatusNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67363692C83F0B200559F0D /* StatusNormalCell.swift */; };
 		B6754C752C82E9D100B685ED /* StatusRetweetedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6754C742C82E9D100B685ED /* StatusRetweetedCell.swift */; };
 		B6B80FBF2C703F2B005C53A8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B80FBE2C703F2B005C53A8 /* Common.swift */; };
 		B6CAC6892C79794C00BEEBCB /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAC6882C79794C00BEEBCB /* NewFeatureViewController.swift */; };
@@ -98,6 +99,7 @@
 		B63CB62B2C701C1F004FD0B3 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		B63CB62D2C701F9C004FD0B3 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B652CA922C7EDF8100021BAF /* StatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
+		B67363692C83F0B200559F0D /* StatusNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusNormalCell.swift; sourceTree = "<group>"; };
 		B6754C742C82E9D100B685ED /* StatusRetweetedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRetweetedCell.swift; sourceTree = "<group>"; };
 		B6B80FBE2C703F2B005C53A8 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B6CAC6882C79794C00BEEBCB /* NewFeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				B62188DE2C7CB2E80096702D /* StatusCellTopView.swift */,
 				B62188E02C7CB3070096702D /* StatusCellBottomView.swift */,
 				B652CA922C7EDF8100021BAF /* StatusPictureView.swift */,
+				B67363692C83F0B200559F0D /* StatusNormalCell.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				B63429902C6E2B0400138CC2 /* DiscoverTableViewController.swift in Sources */,
 				B6D3A1B42C75FE7B0022AE85 /* UserAccount.swift in Sources */,
 				B6CAC6932C7B0A4700BEEBCB /* User.swift in Sources */,
+				B673636A2C83F0B200559F0D /* StatusNormalCell.swift in Sources */,
 				B6CAC6892C79794C00BEEBCB /* NewFeatureViewController.swift in Sources */,
 				B6CAC68D2C7ADD1E00BEEBCB /* Status.swift in Sources */,
 				B63429922C6E2B1D00138CC2 /* MessageTableViewController.swift in Sources */,
