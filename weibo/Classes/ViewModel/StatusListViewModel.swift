@@ -34,15 +34,15 @@ class StatusListViewModel {
       // 3. 拼接数据
       self.statusList = dataList + self.statusList
       // 4. 完成回调
-      finished(true)
+//      finished(true)
       
       // 5. 缓存单张图片
-      self.cacheSingleImage(dataList: self.statusList)
+      self.cacheSingleImage(dataList: self.statusList, finished: finished)
     }
   }
   
   /// 缓存单张图片
-  private func cacheSingleImage(dataList: [StatusViewModel]) {
+  private func cacheSingleImage(dataList: [StatusViewModel], finished: @escaping (_ isSuccess: Bool) -> ()) {
     // 1. 创建调度组
     let group = DispatchGroup()
     let queue = DispatchQueue(label: "cache_images")
@@ -76,6 +76,9 @@ class StatusListViewModel {
     // 监听调度组完成
     group.notify(queue: queue) {
       print("缓存成功 \(dataLength / 1024) K")
+      DispatchQueue.main.async {
+        finished(true)
+      }
     }
   }
 }
