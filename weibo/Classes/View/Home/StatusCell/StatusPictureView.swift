@@ -79,6 +79,14 @@ extension StatusPictureView {
         let image = SDImageCache.shared.imageFromDiskCache(forKey: key)
         size = image!.size
       }
+      // 过窄处理
+      size.width = size.width < 40 ? 40: size.width
+      // 过宽图片
+      if size.width > 300 {
+        let w:CGFloat = 300
+        let h = size.height * w / size.width
+        size = CGSize(width: w, height: h)
+      }
       layout.itemSize = size
       return size
     }
