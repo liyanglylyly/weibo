@@ -13,6 +13,8 @@
 		B621E7472C78CA32007B8FA9 /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621E7462C78CA32007B8FA9 /* UserAccountViewModel.swift */; };
 		B625AFF12C71618A00DBB0D3 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B625AFF02C71618A00DBB0D3 /* OAuthViewController.swift */; };
 		B625B0012C73870D00DBB0D3 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B625B0002C73870C00DBB0D3 /* NetworkTools.swift */; };
+		B62B31C02C88728200B16BA9 /* WBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62B31BF2C88728200B16BA9 /* WBRefreshControl.swift */; };
+		B62B31C22C8878F000B16BA9 /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62B31C12C8878F000B16BA9 /* WBRefreshView.xib */; };
 		B63429482C6D747600138CC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63429472C6D747600138CC2 /* AppDelegate.swift */; };
 		B634294A2C6D747600138CC2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63429492C6D747600138CC2 /* SceneDelegate.swift */; };
 		B63429512C6D747A00138CC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B63429502C6D747A00138CC2 /* Assets.xcassets */; };
@@ -77,6 +79,8 @@
 		B621E7462C78CA32007B8FA9 /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		B625AFF02C71618A00DBB0D3 /* OAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		B625B0002C73870C00DBB0D3 /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		B62B31BF2C88728200B16BA9 /* WBRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBRefreshControl.swift; sourceTree = "<group>"; };
+		B62B31C12C8878F000B16BA9 /* WBRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
 		B63429442C6D747600138CC2 /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63429472C6D747600138CC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B63429492C6D747600138CC2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +187,15 @@
 				B625AFF02C71618A00DBB0D3 /* OAuthViewController.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		B62B31BE2C886FF700B16BA9 /* RefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				B62B31BF2C88728200B16BA9 /* WBRefreshControl.swift */,
+				B62B31C12C8878F000B16BA9 /* WBRefreshView.xib */,
+			);
+			path = RefreshView;
 			sourceTree = "<group>";
 		};
 		B634293B2C6D747600138CC2 = {
@@ -294,6 +307,7 @@
 		B634297C2C6D781400138CC2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B62B31BE2C886FF700B16BA9 /* RefreshView */,
 				B62188D92C7CB2300096702D /* StatusCell */,
 				B634298D2C6D79E300138CC2 /* HomeTableViewController.swift */,
 			);
@@ -473,6 +487,7 @@
 			files = (
 				B63429542C6D747A00138CC2 /* LaunchScreen.storyboard in Resources */,
 				B63429512C6D747A00138CC2 /* Assets.xcassets in Resources */,
+				B62B31C22C8878F000B16BA9 /* WBRefreshView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +619,7 @@
 				B63CB62C2C701C1F004FD0B3 /* UILabel+Extension.swift in Sources */,
 				B62188DF2C7CB2E80096702D /* StatusCellTopView.swift in Sources */,
 				B625B0012C73870D00DBB0D3 /* NetworkTools.swift in Sources */,
+				B62B31C02C88728200B16BA9 /* WBRefreshControl.swift in Sources */,
 				B621E7472C78CA32007B8FA9 /* UserAccountViewModel.swift in Sources */,
 				B6754C752C82E9D100B685ED /* StatusRetweetedCell.swift in Sources */,
 				B652CA932C7EDF8100021BAF /* StatusPictureView.swift in Sources */,

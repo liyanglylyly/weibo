@@ -35,12 +35,12 @@ class HomeTableViewController: VisitorTableViewController {
     tableView.estimatedRowHeight = 400
 //    tableView.rowHeight = UITableView.automaticDimension
     // 下拉刷新
-    refreshControl = UIRefreshControl()
+    refreshControl = WBRefreshControl()
     // 添加监听方法
     refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
-    let v = UIView(frame: CGRect(x: 0, y: 0, width: 180, height: 30))
-    v.backgroundColor = UIColor.red
-    refreshControl?.addSubview(v)
+//    let v = UIView(frame: CGRect(x: 0, y: 0, width: 180, height: 30))
+//    v.backgroundColor = UIColor.red
+//    refreshControl?.addSubview(v)
     refreshControl?.tintColor = UIColor.clear
   }
   
