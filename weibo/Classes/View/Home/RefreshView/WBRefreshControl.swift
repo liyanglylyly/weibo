@@ -9,8 +9,15 @@ import UIKit
 
 /// 自定义刷新控件 - 负责处理刷新逻辑
 class WBRefreshControl: UIRefreshControl {
+  
+  // MARK: - KVO监听方法
+  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    print("KVO = \(frame)")
+  }
+  
   override init() {
     super.init()
+    setupUI()
   }
   
   required init?(coder: NSCoder) {
@@ -27,6 +34,14 @@ class WBRefreshControl: UIRefreshControl {
       make.centerY.equalTo(self.snp_centerY)
       make.size.equalTo(refreshView.bounds.size)
     }
+    // 使用KVO监听位置变化
+    DispatchQueue.main.async {
+      self.addObserver(self, forKeyPath: "frame", context: nil)
+    }
+  }
+  
+  deinit {
+    self.removeObserver(self, forKeyPath: "frame")
   }
   
   // MARK: - 懒加载控件
