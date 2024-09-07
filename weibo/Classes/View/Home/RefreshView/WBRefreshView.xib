@@ -54,6 +54,9 @@
             <viewLayoutGuide key="safeArea" id="kYF-4X-fzO"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="tipIconView" destination="TtV-KG-FwQ" id="16G-ib-7oC"/>
+            </connections>
             <point key="canvasLocation" x="-470.22900763358774" y="-138.02816901408451"/>
         </view>
     </objects>

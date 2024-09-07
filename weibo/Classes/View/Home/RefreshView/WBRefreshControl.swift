@@ -11,19 +11,16 @@ private let WBRefreshControlOffset: CGFloat = -60
 /// 自定义刷新控件 - 负责处理刷新逻辑
 class WBRefreshControl: UIRefreshControl {
   
-  
-  private var rotateFlag = false
-  
   // MARK: - KVO监听方法
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     print("KVO = \(frame)")
     if frame.origin.y > 0 {
       return
     }
-    if frame.origin.y < WBRefreshControlOffset && !rotateFlag {
-      rotateFlag = true
-    } else if frame.origin.y >= WBRefreshControlOffset && rotateFlag {
-      rotateFlag = false
+    if frame.origin.y < WBRefreshControlOffset && !refreshView.rotateFlag {
+      refreshView.rotateFlag = true
+    } else if frame.origin.y >= WBRefreshControlOffset && refreshView.rotateFlag {
+      refreshView.rotateFlag = false
     }
   }
   
@@ -63,9 +60,26 @@ class WBRefreshControl: UIRefreshControl {
 
 /// 刷新视图 - 负责处理动画显示
 class WBRefreshView: UIView {
+  
+  var rotateFlag = false {
+    didSet {
+      rotateTipIcon()
+    }
+  }
+  
+  @IBOutlet weak var tipIconView: UIImageView!
   /// 从XIB加载视图 类函数
   class func refreshView() -> WBRefreshView {
     let nib = UINib(nibName: "WBRefreshView", bundle: nil)
     return nib.instantiate(withOwner: nil)[0] as! WBRefreshView
+  }
+  
+  /// 旋转图标动画
+  func rotateTipIcon() {
+    var angle = CGFloat(Double.pi)
+    angle += rotateFlag ? -0.000001 : 0.0000001
+    UIView.animate(withDuration: 0.5) {
+      self.tipIconView.transform = CGAffineTransformRotate(self.tipIconView.transform, CGFloat(angle))
+    }
   }
 }
