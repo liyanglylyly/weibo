@@ -76,8 +76,9 @@ extension StatusPictureView {
     if count == 1 {
       var size = CGSize(width: 150, height: 120)
       if let key = viewModel?.thumbnailUrls?.first?.absoluteString {
-        let image = SDImageCache.shared.imageFromDiskCache(forKey: key)
-        size = image!.size
+        if let image = SDImageCache.shared.imageFromDiskCache(forKey: key) {
+          size = image.size
+        }
       }
       // 过窄处理
       size.width = size.width < 40 ? 40: size.width

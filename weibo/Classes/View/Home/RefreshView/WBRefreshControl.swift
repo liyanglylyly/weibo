@@ -7,12 +7,24 @@
 
 import UIKit
 
+private let WBRefreshControlOffset: CGFloat = -60
 /// 自定义刷新控件 - 负责处理刷新逻辑
 class WBRefreshControl: UIRefreshControl {
+  
+  
+  private var rotateFlag = false
   
   // MARK: - KVO监听方法
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     print("KVO = \(frame)")
+    if frame.origin.y > 0 {
+      return
+    }
+    if frame.origin.y < WBRefreshControlOffset && !rotateFlag {
+      rotateFlag = true
+    } else if frame.origin.y >= WBRefreshControlOffset && rotateFlag {
+      rotateFlag = false
+    }
   }
   
   override init() {
